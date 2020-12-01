@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Упрощенное статическое обслуживание файлов.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,13 +128,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+
+# Упрощенное статическое обслуживание файлов.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Дополнительные места для collectstatic для поиска статических файлов.
-STATICFILES_DIR = (
-    os.path.join(BASE_DIR, 'static'),
-)
+#STATICFILES_DIR = (
+  #  os.path.join(BASE_DIR, 'static'),
+#)
 
 # Мои настройки
 LOGOUT_REDIRECT_URL = '/'
