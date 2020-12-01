@@ -152,6 +152,11 @@ BOOTSTRAP3 = {
 # Активация Django-Heroku.
 django_heroku.settings(locals())
 
+# Хостом проекта может быть только Heroku.
+ALLOWED_HOSTS = ['lerning-log.herokuapp.com']
+
+DEBUG = False
+
 # Настройки Heroku
 #cwd = os.getcwd()
 #if cwd == '/app' or cwd[:4] == '/tmp':
