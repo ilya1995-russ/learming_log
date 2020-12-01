@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wsjxw7fjs*1j-t4eg@u14bu8z0v@qr9q(#tuqh^h$ht*ec%z21'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lerning-log.herokuapp.com', '127.0.0.1:8000',]
 
 
 # Application definition
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'lerning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'lerning_log/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -153,9 +153,9 @@ BOOTSTRAP3 = {
 django_heroku.settings(locals())
 
 # Хостом проекта может быть только Heroku.
-ALLOWED_HOSTS = ['lerning-log.herokuapp.com']
+#ALLOWED_HOSTS = ['lerning-log.herokuapp.com']
 
-DEBUG = False
+#DEBUG = False
 
 # Настройки Heroku
 #cwd = os.getcwd()
